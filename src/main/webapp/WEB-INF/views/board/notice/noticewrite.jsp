@@ -191,24 +191,66 @@ document.addEventListener('DOMContentLoaded', function () {
 	<br>
 	<br>
 	<br>
-	<div class="container text-center">
+	<style>
+  table.table2 {
+    border-collapse: separate;
+    border-spacing: 1px;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    margin: 20px 10px;
+  }
+
+  table.table2 tr {
+    width: 50px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
+
+  table.table2 td {
+    width: 100px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+  }
+</style>
+<div class="container text-center">
 		<div class="center-heading en1">
 			<h2>공지사항 글쓰기</h2>
 			<span class="center-line"></span>
-		</div>
-	<div class="col-md-12">
-    <div style="text-align: center;">
-        <div class="table-responsive">
-            <label>제목</label>
-            <label><input type="text" id="title"></label><br>
-            <label>내용</label>
-            <label><input type="text" id="content" style="width: 300px; height: 200px;"></label><br>
-            <label><input type="button" id="write" value="작성하기"></label>
-        </div>
-    </div>
-</div>
+		</div></div>
+<form method="get" action="write_action.php">
+  <table style="padding-top:50px" align=center width=700 border=0 cellpadding=2>
+    <tr>
+      <td height=20 align=center bgcolor=#ccc><font color=white>글쓰기</font></td>
+    </tr>
+    <tr>
+      <td bgcolor=white>
+        <table class="table2">
+          <tr>
+            <td>제목 :</td>
+            <td><input type="text" id="title"></td>
+          </tr>
+          <tr>
+            <td>내용</td>
+			<td><textarea id = "content" cols=85 rows=15></textarea></td>
+			</tr>
 
-	</div>
+        </table>
+        
+        
+        <center>
+         <div class="find-btn">
+    	<button type="button" class="btn btn-navy navbar-btn find-btn1" id="noticeboard">목록</button>
+    	<button type="button" class="btn btn-grey navbar-btn find-btn1" id="write">작성</button>
+		</div>
+        </center>
+      </td>
+    </tr>
+  </table>
+</form>
 
 	<div class="row padding-top-20"></div>
 	<div class="d-none d-sm-block margin-top-30"></div>

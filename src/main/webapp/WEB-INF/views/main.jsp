@@ -126,12 +126,12 @@ document.addEventListener('DOMContentLoaded', function () {
 				data-animations="fadeIn fadeIn fadeInUp fadeInRight">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item dropdown megamenu-li"><a
-						class="nav-link dropdown-toggle ks4 f15" href="#"
+						class="nav-link dropdown-toggle ks4 f15" href="/mypage"
 						id="navbarDropdownBlog" data-toggle="dropdown"
 						aria-haspopup="true" aria-expanded="false">내정보</a>
 						<ul class="dropdown-menu dropdown-menu-right"
 							aria-labelledby="navbarDropdownPortfolio">
-							<a class="dropdown-item ks4 fw4" href="/inte">마이페이지</a>
+							<a class="dropdown-item ks4 fw4" href="/mypage">마이페이지</a>
 							<a class="dropdown-item ks4 fw4" href="/ques">찜목록</a>
 							<a class="dropdown-item ks4 fw4" href="/ad1">관리자 전용</a>
 						</ul></li>
@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			</div>
 		</div>
 	</nav>
+	<br><br><br><br>
 	<div class="ety-main"></div>
 	<div class="padding-top-50 padding-bottom-30">
 		<div class="container">
@@ -190,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
 				<h2 class="en1">
 					<img src="img/mma.png">
 				</h2>
-				<span class="center-line"></span>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
@@ -288,14 +288,17 @@ document.addEventListener('DOMContentLoaded', function () {
 				<div class="row">
 					<div class="col-md-12 main_one_title ks4">후기/리뷰</div>
 				</div>
-				<a class="one_more"><span class="sound_only">게시판4</span><i
+				<a href="/review" class="one_more"><span class="sound_only">게시판4</span><i
 					class="fa fa-plus" aria-hidden="true"
 					style="font-size: 22px; line-height: 1px;"></i><span
 					class="sound_only"> 더보기</span></a>
 				<div class="lat_list_one">
 					<ul>
-						<li class="ks4"><a href="#">동아리동아리동아리4</a> <span
-							class="lt_date hidden-xs hidden-sm">09-27</span></li>
+						<table>
+							<thead>
+							<tbody id="table-body4">
+							</tbody>
+						</table>
 					</ul>
 				</div>
 			</div>

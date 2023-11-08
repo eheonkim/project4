@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	<div class="container text-center">
 		<div class="center-heading en1">
 			<br> <br> <br> <br> <br> <br> <br>
-			<h2>동아리 게시판</h2>
+			<h2>공지 사항</h2>
 			<span class="center-line"></span>
 		</div>
 		<div class="col-md-12">
@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				</select> <input type="text" id="searchInput" placeholder="검색어 입력"
 					style="margin-right: 10px;">
 				<button id="searchButton" class="btn-u btn-u-blue">검색</button>
-				<button type="button" onclick="location.href='/dongwriteform'"
+				<button type="button" onclick="location.href='/noticewrite'"
 					class="btn-u btn-u-blue">글쓰기</button>
 			</div>
 		</div>

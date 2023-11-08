@@ -189,6 +189,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			</div>
 		</div>
 	</nav>
+	<br><br><br><br><br><br><br><br>
+	<div class="container text-center">
+		<div class="center-heading en1">
+			<h2>회원가입</h2>
+			<span class="center-line"></span>
+		</div></div>
 	<div class="ety-main"></div>
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, shrink-to-fit=no">

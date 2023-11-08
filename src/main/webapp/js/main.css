@@ -97,7 +97,7 @@
 /* desktop */
 @media ( min-width : 1090px) {
 	.ety-main {
-		margin-bottom: 130px;
+		/*margin-bottom: 130px; */
 	}
 }
 
@@ -569,7 +569,7 @@ box-sizing: content-box;
 /* 폰트 */
 table th{background:#f9f9f9;color:#666;font-size:13px;font-family: 'Noto Sans KR', sans-serif;}
 .profile_img img{width:20px;height:20px;}
-table td {color:#666;font-size:13px;font-family: 'Noto Sans KR', sans-serif;}
+table td {color:#666;font-size:12px;font-family: 'Noto Sans KR', sans-serif;}
 #bo_cate ul li{color:#666;font-size:13px;font-family: 'Noto Sans KR', sans-serif;}
 .list-group a{font-size:14.5px;font-family: 'Noto Sans KR', sans-serif;}
 

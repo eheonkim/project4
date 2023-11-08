@@ -2,21 +2,23 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.4.0/firebas
 import { getFirestore, doc, updateDoc, getDoc, } from 'https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js';
 
 var firebaseConfig = {
-	apiKey: "AIzaSyCYTzwY4INgoQAJ_e8ZdxlrOrJyIsb0iEA",
-	authDomain: "pro4-3a50f.firebaseapp.com",
-	databaseURL: "https://pro4-3a50f-default-rtdb.firebaseio.com",
-	projectId: "pro4-3a50f",
-	storageBucket: "pro4-3a50f.appspot.com",
-	messagingSenderId: "307587646265",
-	appId: "1:307587646265:web:1a1d9ab9129d2c2956dee8",
-	measurementId: "G-LMXETWQJGT"
+   apiKey: "AIzaSyCYTzwY4INgoQAJ_e8ZdxlrOrJyIsb0iEA",
+   authDomain: "pro4-3a50f.firebaseapp.com",
+   databaseURL: "https://pro4-3a50f-default-rtdb.firebaseio.com",
+   projectId: "pro4-3a50f",
+   storageBucket: "pro4-3a50f.appspot.com",
+   messagingSenderId: "307587646265",
+   appId: "1:307587646265:web:1a1d9ab9129d2c2956dee8",
+   measurementId: "G-LMXETWQJGT"
 };
 var app = initializeApp(firebaseConfig);
 var db = getFirestore(app);
+var userData = sessionStorage.getItem("loggedInUser");
+
 
 async function editDocumentFields() {
-	const params = new URLSearchParams(window.location.search);
-	const docId = params.get('docId');
+   const params = new URLSearchParams(window.location.search);
+   const docId = params.get('docId');
     const docRef = doc(db, 'dongboards', docId);
     
 
@@ -26,8 +28,8 @@ async function editDocumentFields() {
             const data = docSnap.data();
             var date = data.date ? data.date.toDate() : null;
             var formattedDate = date ? formatDate(date) : "날짜 없음";
-			
-			const tableBody3 = document.getElementById('table-body3');
+         
+         const tableBody3 = document.getElementById('table-body3');
             // 기존 내용을 수정 가능한 필드로 대체합니다.
             const tableRow = `<tr>
                 <td>${data.id}</td>
@@ -78,3 +80,40 @@ function formatDate(date) {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
     return date.toLocaleDateString('ko-KR', options);
 }
+
+// 로그인 체크, 본인확인
+async function checkSession() { 
+    if(!userData) {
+      alert("로그인 후 이용해주세요.");
+      window.location.href = "/login"; // 로그인페이지 이동
+      return;
+   }
+    
+    var user = JSON.parse(userData);
+    var id = user.id;
+    const params = new URLSearchParams(window.location.search);
+    const docId = params.get('docId');
+    
+    try {
+        const docSnap = await getDoc(doc(db, 'dongboards', docId));
+        if (docSnap.exists()) {
+            const data = docSnap.data();
+            if (data.id !== id) {
+                alert("본인만 수정 가능합니다.");
+                window.location.href = `/dongviewboard?docId=${docId}`;
+                return false;
+            }
+            return true;
+        } else {
+            console.log("해당 ID에 해당하는 문서를 찾을 수 없습니다.");
+             return false;
+        }
+    } catch (error) {
+        console.error("문서 가져오기 중 오류 발생:", error);
+        return false; // 삭제 금지
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    checkSession();
+});
